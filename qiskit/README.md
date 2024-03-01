@@ -7,8 +7,11 @@
         └───┘ ░ └╥┘
 meas: 1/═════════╩═
 
+Basic simulator results: {'0': 1038, '1': 1010}
+```
+---
 
-
+```
 [ bc ] bell circuit
      ┌───┐     ┌─┐   
 q_0: ┤ H ├──■──┤M├───
@@ -17,7 +20,8 @@ q_1: ─────┤ X ├─╫─┤M├
           └───┘ ║ └╥┘
 c: 2/═══════════╩══╩═
                 0  1 
-
+Basic simulator result: {'11': 269, '00': 243}
+0 "collapse caused by measurement" > "teleport"
 ```
 
 ---
