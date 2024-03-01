@@ -23,6 +23,8 @@ c: 2/═══════════╩══╩═
 Basic simulator result: {'11': 269, '00': 243}
 0 "collapse caused by measurement" > "teleport"
 ```
+**Controlled** [x] gates act on 2 or more qubits, where one or more qubits act as a control for some operation.
+For example, the controlled NOT gate (or CNOT or CX) acts on 2 qubits, and performs the NOT operation on the second qubit only when the first qubit is |1⟩, and otherwise leaves it unchanged. 
 
 ---
 ### roll of the eight-sided dice / randome "input test" generator
