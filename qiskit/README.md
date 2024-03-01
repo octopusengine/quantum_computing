@@ -56,3 +56,14 @@ c: 3/══════╩══╩══╩═
 {'001': 1}
 {'101': 1}
 ```
+
+---
+
+GHZ (Greenberger–Horne–Zeilinger_state) - https://github.com/Qiskit/qiskit/blob/main/examples/python/ghz.py
+
+QFT (Quantum Fourier Transform) - https://github.com/Qiskit/qiskit/blob/main/examples/python/qft.py
+
+Stochastic swap - https://github.com/Qiskit/qiskit/blob/main/examples/python/stochastic_swap.py
+
+
+
