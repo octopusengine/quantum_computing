@@ -12,8 +12,8 @@ Basic simulator results: {'0': 1038, '1': 1010}
 The Hadamard or Walsh-Hadamard gate, acts on a single qubit. It maps the basis states "1-0" (it creates an equal **superposition state** if given a computational basis state).
 
 https://en.wikipedia.org/wiki/Quantum_logic_gate
----
 
+---
 ```
 [ bc ] bell circuit / Entangled Qubits
      ┌───┐     ┌─┐   
