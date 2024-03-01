@@ -2,8 +2,7 @@
 basics of quantum computers, simple experiments in a simulator
 
 ## IBM / qiskit
-https://www.ibm.com/quantum/qiskit
-https://github.com/Qiskit
+https://www.ibm.com/quantum/qiskit | https://github.com/Qiskit
 
 ```
 python3 -m venv
