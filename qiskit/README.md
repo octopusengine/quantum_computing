@@ -15,7 +15,7 @@ https://en.wikipedia.org/wiki/Quantum_logic_gate
 ---
 
 ```
-[ bc ] bell circuit
+[ bc ] bell circuit / Entangled Qubits
      ┌───┐     ┌─┐   
 q_0: ┤ H ├──■──┤M├───
      └───┘┌─┴─┐└╥┘┌─┐
