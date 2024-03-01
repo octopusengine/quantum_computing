@@ -1,6 +1,4 @@
 from qiskit import QuantumCircuit, transpile
-from qiskit.quantum_info import Pauli
-from qiskit_ibm_runtime import QiskitRuntimeService, Estimator, Options
 from qiskit.providers.basic_provider import BasicSimulator
 
 
@@ -25,9 +23,15 @@ print(qc)
 print("[ Simulator ] roll of the eight-sided dice")
 sim_backend = BasicSimulator()
 
-print("-"*16,"(3 x 3)")
+print("-"*16,"(1 x 8000)")
+job = sim_backend.run(transpile(qc, sim_backend), shots=8000)
+result = job.result()
+print(result.get_counts(qc))
+
+
+print("-"*16,"(3 x 5)")
 for _ in range(3):
-    job = sim_backend.run(transpile(qc, sim_backend), shots=3)
+    job = sim_backend.run(transpile(qc, sim_backend), shots=5)
     result = job.result()
     print(result.get_counts(qc))
 
@@ -38,7 +42,6 @@ for _ in range(6):
     print(result.get_counts(qc))
 
 """
-
      ┌───┐┌─┐      
 q_0: ┤ H ├┤M├──────
      ├───┤└╥┘┌─┐   
@@ -48,17 +51,22 @@ q_2: ┤ H ├─╫──╫─┤M├
      └───┘ ║  ║ └╥┘
 c: 3/══════╩══╩══╩═
            0  1  2 
-[ Simulator ] roll of the dice
----------------- (3 x 3)
-{'011': 1, '100': 1, '110': 1}
-{'110': 1, '010': 1, '011': 1}
-{'111': 1, '011': 1, '000': 1}
----------------- (6 x 1)
-{'101': 1}
-{'001': 1}
-{'100': 1}
-{'011': 1}
-{'011': 1}
-{'110': 1}
 
+[ Simulator ] roll of the eight-sided dice
+
+---------------- (1 x 8000)
+{'100': 1014, '110': 1002, '111': 930, '010': 992, '101': 1062, '011': 959, '000': 1023, '001': 1018}
+
+---------------- (3 x 5)
+{'000': 1, '111': 1, '011': 1, '001': 1, '110': 1}
+{'011': 1, '010': 1, '100': 1, '000': 1, '101': 1}
+{'100': 1, '011': 2, '101': 1, '110': 1}
+
+---------------- (6 x 1)
+{'000': 1}
+{'000': 1}
+{'111': 1}
+{'010': 1}
+{'001': 1}
+{'101': 1}
 """

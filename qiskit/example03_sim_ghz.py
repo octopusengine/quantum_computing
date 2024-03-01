@@ -65,12 +65,20 @@ print(qc)
 
 
 print("[ Simulator ]")
-# No classical registers in circuit "circuit-158", counts will be empty.
 sim_backend = BasicSimulator()
+
+print("-"*32)
+print("8 single steps")
+for _ in range(8):
+     job = sim_backend.run(transpile(qc, sim_backend), shots=1)
+     result = job.result()
+     print(result.get_counts(qc))
+
+
 job = sim_backend.run(transpile(qc, sim_backend), shots=SHOTS)
 result = job.result()
 
-print("Basic simulator result: ")
+print("Basic simulator result - shots:", SHOTS)
 print(result.get_counts(qc))
 
 
