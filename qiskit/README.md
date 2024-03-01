@@ -1,7 +1,7 @@
 # simple examples
 
 ```
-[ HG ] Hadamard gate
+[ HG ] Hadamard gate / only (single) quibit in superposition
         ┌───┐ ░ ┌─┐
      q: ┤ H ├─░─┤M├
         └───┘ ░ └╥┘
