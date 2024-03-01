@@ -9,6 +9,9 @@ meas: 1/═════════╩═
 
 Basic simulator results: {'0': 1038, '1': 1010}
 ```
+
+
+https://en.wikipedia.org/wiki/Quantum_logic_gate
 ---
 
 ```
