@@ -2,6 +2,7 @@ from qiskit import QuantumCircuit, transpile
 from qiskit.quantum_info import Pauli
 from qiskit_ibm_runtime import QiskitRuntimeService, Estimator, Options
 from qiskit.providers.basic_provider import BasicSimulator
+from lib.octopus_qiskit_tools import create_noise_dict, sum_noise_res_dict, print_histogram
 
 DEBUG = True
 num_qubits = 2
@@ -81,6 +82,20 @@ result = job.result()
 print("Basic simulator result - shots:", SHOTS)
 print(result.get_counts(qc))
 
+print("--- addition of errors caused by a General noise")
+gn = create_noise_dict(2, 0.1, SHOTS)
+
+job = sim_backend.run(transpile(qc, sim_backend), shots=SHOTS)
+result = job.result()
+sim = result.get_counts(qc)
+
+final_sim = sum_noise_res_dict(gn, sim)
+
+print("Basic simulator result - shots:", SHOTS)
+print(final_sim)
+print_histogram(final_sim)
+
+
 
 """
 [ GHZ ] Greenberger–Horne–Zeilinger_state
@@ -105,5 +120,13 @@ c: 2/══════════════╩══╩═
 [ Simulator ]
 Basic simulator result: 
 {'11': 269, '00': 243}
+
+--- addition of errors caused by a General noise
+Basic simulator result - shots: 512
+{'00': 270, '01': 12, '10': 5, '11': 266}
+00: ################################################################################
+01: ###
+10: #
+11: ##############################################################################
 
 """
