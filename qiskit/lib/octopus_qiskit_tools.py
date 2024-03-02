@@ -8,13 +8,14 @@ from lib.octopus_qiskit_tools import create_noise_dict, sum_noise_res_dict, prin
 """
 
 import random
+import math
 
 __version__ = "0.1"
 
 
 # general "fake" noise
 def create_noise_dict(bits=2, err=0.1, shots=512): # 0.1 = 10%
-     nb = 2
+     nb = bits
      err = 0.1
      max_noise = int(shots/2**nb*err)
      n_bit_noise_dict = {format(i, '0{}b'.format(nb)): random.randint(0, max_noise) for i in range(2**nb)}
@@ -32,9 +33,16 @@ def sum_noise_res_dict(noise_dict, res_sim_dict):
      return data_dict
 
 
-def print_histogram(data_dict, height = 80):
-     max_value = max(data_dict.values())   
+def print_histogram(data_dict, height = 80, log10=False):
+     max_value = max(data_dict.values())         
+
+     if log10:
+          max_value = math.log10(max(data_dict.values())) 
 
      for key, value in sorted(data_dict.items()):
-          normalized_value = int(value / max_value * height)
-          print(key + ': ' + "#" * normalized_value) # chr(219)
+          if log10:
+               normalized_value = int(float(math.log10(value)) / max_value) * height
+          else:
+               normalized_value = int(value / max_value * height)
+
+          print(key + ': ' + "#" * normalized_value, value) # , normalized_value / chr(219)
