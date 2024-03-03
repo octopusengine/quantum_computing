@@ -4,6 +4,16 @@ basics of quantum computers, simple experiments in a simulator
 ## Google / cirq
 https://en.wikipedia.org/wiki/Cirq
 
+```
+python3 -m venv
+source /venv/bin/activate
+
+pip install cirq
+
+```
+
+---
+
 ## IBM / qiskit
 https://www.ibm.com/quantum/qiskit | https://github.com/Qiskit
 
