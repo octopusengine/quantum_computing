@@ -1,6 +1,9 @@
 # quantum_computing
 basics of quantum computers, simple experiments in a simulator
 
+## Google / cirq
+https://en.wikipedia.org/wiki/Cirq
+
 ## IBM / qiskit
 https://www.ibm.com/quantum/qiskit | https://github.com/Qiskit
 
